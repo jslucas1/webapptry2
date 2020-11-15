@@ -10,8 +10,9 @@ namespace API.Models
     {
         public List<Book> GetAllBooks()
                 {
-                    // string currentDir = Directory.GetCurrentDirectory();
-                    // string cs = "URI=file:"+currentDir + @"\Models\book.db";
+                    string currentDir = Directory.GetCurrentDirectory();
+                    string cs = "URI=file:"+currentDir + @"\Models\book.db";
+                    Console.WriteLine("looking for the database here : " + cs);
                     // using var con = new SQLiteConnection(cs);
                     // con.Open();
 
