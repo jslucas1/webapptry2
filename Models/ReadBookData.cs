@@ -10,23 +10,25 @@ namespace API.Models
     {
         public List<Book> GetAllBooks()
                 {
-                    string currentDir = Directory.GetCurrentDirectory();
-                    string cs = "URI=file:"+currentDir + @"\Models\book.db";
-                    using var con = new SQLiteConnection(cs);
-                    con.Open();
+                    // string currentDir = Directory.GetCurrentDirectory();
+                    // string cs = "URI=file:"+currentDir + @"\Models\book.db";
+                    // using var con = new SQLiteConnection(cs);
+                    // con.Open();
 
-                    string stm = "SELECT * FROM books";
-                    using var cmd = new SQLiteCommand(stm, con);
+                    // string stm = "SELECT * FROM books";
+                    // using var cmd = new SQLiteCommand(stm, con);
 
 
-                    using SQLiteDataReader rdr = cmd.ExecuteReader();
+                    // using SQLiteDataReader rdr = cmd.ExecuteReader();
 
                     List<Book> allBooks = new List<Book>();
-                    while(rdr.Read())
-                    {
+                    allBooks.Add(new Book(){Id=1,Title="Mistborn", Author="Brandon Sanderson"});
+                    allBooks.Add(new Book(){Id=2,Title="Oathbringer", Author="Brandon Sanderson"});
+                    // while(rdr.Read())
+                    // {
 
-                        allBooks.Add(new Book(){Id = rdr.GetInt32(0), Title = rdr.GetString(1), Author=rdr.GetString(2)});
-                    }
+                    //     allBooks.Add(new Book(){Id = rdr.GetInt32(0), Title = rdr.GetString(1), Author=rdr.GetString(2)});
+                    // }
 
                     return allBooks;
                 }
